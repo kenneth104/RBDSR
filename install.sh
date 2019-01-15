@@ -4,13 +4,16 @@ DEFAULT_CEPH_VERSION="mimic"
 # Usage: installCephRepo <ceph-version>
 function installCephRepo {
   echo "Install new Repos"
-  rpm -Uvh https://download.ceph.com/rpms/{distro}/x86_64/ceph-$1.el7.noarch.rpm
+  rpm -Uvh https://download.ceph.com/rpm-mimic/el7/noarch/ceph-release-1-1.el7.noarch.rpm
+  wget -P /etc/yum.repos.d/ https://packages.efficios.com/repo.files/EfficiOS-RHEL7-x86-64.repo
+  rpmkeys --import https://packages.efficios.com/rhel/repo.key
   echo "centos" > /etc/yum/vars/contentdir
 }
 
 # Usage: removeCephRepo <ceph-version>
 function removeCephRepo {
-  rpm -e --nodeps ceph-$1.el7.noarch
+  rpm -e --nodeps ceph-release-1-1.el7.noarch
+  rm -f /etc/yum.repos.d/EfficiOS-RHEL7-x86-64.repo
 }
 
 # Usage: removeXCPngRepo
