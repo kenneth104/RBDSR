@@ -1,4 +1,4 @@
-# RBDSR - XenServer 7.5 / XCP-ng 7.5 Storage Manager plugin for CEPH (v3.0) for SMAPIv3
+# RBDSR - XenServer 7.6 / XCP-ng 7.6 Storage Manager plugin for CEPH (v3.0) for SMAPIv3
 This plugin adds support for Ceph block devices into XenServer / XCP-ng.
 It supports the creation of VDI as RBD device in Ceph pool.
 
@@ -10,11 +10,11 @@ Plugin requires `qemu-dp.x86_64` ([xcp-ng-rpms/qemu-dp](https://github.com/xcp-n
 
 1. Run this command:
 
-		# sh <(curl -s https://raw.githubusercontent.com/rposudnevskiy/RBDSR/v3.0/netinstall.sh)
+		# sh <(curl -s https://raw.githubusercontent.com/kenneth104/RBDSR/v3.0/netinstall.sh)
 
    To install certain version of ceph storage, provide version name (```jewel```, ```luminous``` or ```mimic```) as first parameter:
 
-		# sh <(curl -s https://raw.githubusercontent.com/rposudnevskiy/RBDSR/v3.0/netinstall.sh) mimic
+		# sh <(curl -s https://raw.githubusercontent.com/kenneth104/RBDSR/v3.0/netinstall.sh) mimic
  
 2. Create ```/etc/ceph/ceph.conf``` accordingly you Ceph cluster. The easiest way is just copy it from your Ceph cluster node
 
@@ -29,7 +29,7 @@ Plugin requires `qemu-dp.x86_64` ([xcp-ng-rpms/qemu-dp](https://github.com/xcp-n
 
 2. Run this command:
 
-		# ~/RDBSRv3.0/install.sh deinstall
+		# ~/RDBSR-3.0/install.sh deinstall
 
 3. Restart Xapi storage script plugin server on XenServer / XCP-ng hosts
 
