@@ -4,7 +4,7 @@ DEFAULT_CEPH_VERSION="mimic"
 # Usage: installCephRepo <ceph-version>
 function installCephRepo {
   echo "Install new Repos"
-  rpm -Uvh https://download.ceph.com/rpms/{distro}/x86_64/ceph-$1.el7.noarch.rpm'
+  rpm -Uvh https://download.ceph.com/rpms/{distro}/x86_64/ceph-$1.el7.noarch.rpm
   echo "centos" > /etc/yum/vars/contentdir
 }
 
