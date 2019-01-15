@@ -1,16 +1,16 @@
 #!/bin/bash
-DEFAULT_CEPH_VERSION="luminous"
+DEFAULT_CEPH_VERSION="mimic"
 
 # Usage: installCephRepo <ceph-version>
 function installCephRepo {
   echo "Install new Repos"
-  yum install --enablerepo="extras,base" -y centos-release-ceph-$1.noarch
+  rpm -Uvh https://download.ceph.com/rpms/{distro}/x86_64/ceph-$1.el7.noarch.rpm'
   echo "centos" > /etc/yum/vars/contentdir
 }
 
 # Usage: removeCephRepo <ceph-version>
 function removeCephRepo {
-  yum erase -y centos-release-ceph-$1.noarch
+  rpm -e --nodeps ceph-$1.el7.noarch
 }
 
 # Usage: removeXCPngRepo
@@ -121,7 +121,7 @@ function unconfigureFirewall {
 
 function installCeph {
   echo "Install Ceph API"
-  yum install --enablerepo="extras,base" -y python-rbd rbd-nbd
+  yum install -y python-rbd rbd-nbd
 }
 
 function uninstallCeph {
@@ -130,7 +130,7 @@ function uninstallCeph {
 }
 
 function upgradeDeps {
-  yum install --enablerepo="xcp-ng-extras_testing*" -y qemu-dp
+  yum install --enablerepo="xcp-ng*" -y qemu-dp
   yum install --enablerepo="extras,base" -y glibc
 }
 
